@@ -18,14 +18,14 @@ onMounted(() => {
 <template>
   <li v-for="topic in topics" class="mt-12 lg:mt-8">
     <h5
-      class="mb-8 lg:mb-3 font-semibold text-neutral-900 dark:text-neutral-200">
+      class="mb-8 font-semibold text-neutral-900 dark:text-neutral-200 lg:mb-3">
       {{ topic.header }}
     </h5>
     <ul
-      class="space-y-6 lg:space-y-2 border-l border-neutral-100 dark:border-neutral-700">
+      class="space-y-6 border-l border-neutral-100 dark:border-neutral-700 lg:space-y-2">
       <li v-for="link in topic.instruction_set">
         <a
-          class="block border-l pl-4 -ml-px border-transparent hover:border-neutral-400 dark:hover:border-neutral-500 text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300"
+          class="-ml-px block border-l border-transparent pl-4 text-neutral-700 hover:border-neutral-400 hover:text-neutral-900 dark:text-neutral-400 dark:hover:border-neutral-500 dark:hover:text-neutral-300"
           href="#">
           {{ link.header }}
         </a>

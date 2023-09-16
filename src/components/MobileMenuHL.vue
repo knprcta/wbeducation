@@ -25,7 +25,7 @@ function openModal() {
       as="div"
       :initial-focus="focus"
       @close="closeModal"
-      class="fixed z-50 inset-0 overflow-y-auto lg:hidden">
+      class="fixed inset-0 z-50 overflow-y-auto lg:hidden">
       <TransitionChild
         as="template"
         enter="duration-300 ease-out"
@@ -47,8 +47,8 @@ function openModal() {
         leave-from="opacity-100 -translate-x-0"
         leave-to="opacity-0 -translate-x-full">
         <DialogPanel
-          class="relative bg-white w-80 max-w-[calc(100%-3rem)] p-6 dark:bg-neutral-800 min-h-screen">
-          <nav ref="focus" class="lg:text-sm lg:leading-6 relative">
+          class="relative min-h-screen w-80 max-w-[calc(100%-3rem)] bg-white p-6 dark:bg-neutral-800">
+          <nav ref="focus" class="relative lg:text-sm lg:leading-6">
             <ul>
               <slot></slot>
             </ul>
@@ -56,9 +56,9 @@ function openModal() {
           <button
             @click="closeModal"
             type="button"
-            class="absolute z-10 top-5 right-5 w-8 h-8 flex items-center justify-center text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
+            class="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
             tabindex="0">
-            <svg viewBox="0 0 10 10" class="w-2.5 h-2.5 overflow-visible">
+            <svg viewBox="0 0 10 10" class="h-2.5 w-2.5 overflow-visible">
               <path
                 d="M0 0L10 10M10 0L0 10"
                 fill="none"

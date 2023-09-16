@@ -1,15 +1,15 @@
 <template>
   <div
-    class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-neutral-900/10 dark:border-neutral-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent">
-    <div class="max-w-8xl mx-auto">
+    class="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 dark:border-neutral-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-neutral-900/10">
+    <div class="max-w-8xl mx-auto max-w-">
       <div
-        class="py-4 border-b border-neutral-900/10 lg:px-8 lg:border-0 dark:border-neutral-300/10 mx-4 lg:mx-0">
+        class="mx-4 border-b border-neutral-900/10 py-4 dark:border-neutral-300/10 lg:mx-0 lg:border-0 lg:px-8">
         <div class="relative flex items-center justify-between">
           <div class="flex items-baseline gap-1">
             <img
               src="../assets/logo.svg"
               alt="logo"
-              class="dark:grayscale dark:brightness-200" />
+              class="dark:brightness-200 dark:grayscale" />
             <span
               class="text-lg font-medium leading-none text-[#8638cf] dark:text-inherit">
               education
@@ -17,14 +17,14 @@
           </div>
           <div class="flex gap-3">
             <button
-              class="w-8 h-8 flex items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300">
+              class="flex h-8 w-8 items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6">
+                class="h-6 w-6">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -32,14 +32,14 @@
               </svg>
             </button>
             <button
-              class="w-8 h-8 flex items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300">
+              class="flex h-8 w-8 items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6">
+                class="h-6 w-6">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div
-      class="flex items-center p-4 border-b border-neutral-900/10 lg:hidden dark:border-neutral-50/[0.06]">
+      class="flex items-center border-b border-neutral-900/10 p-4 dark:border-neutral-50/[0.06] lg:hidden">
       <button
         type="button"
         class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300">
@@ -61,14 +61,14 @@
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="w-6 h-6">
+          class="h-6 w-6">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </button>
-      <ol class="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0">
+      <ol class="ml-4 flex min-w-0 whitespace-nowrap text-sm leading-6">
         <li class="flex items-center">
           Для начала
           <svg
@@ -85,7 +85,7 @@
           </svg>
         </li>
         <li
-          class="font-semibold text-neutral-900 truncate dark:text-neutral-200">
+          class="truncate font-semibold text-neutral-900 dark:text-neutral-200">
           Основные понятия
         </li>
       </ol>
