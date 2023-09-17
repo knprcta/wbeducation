@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import useMainStore from "../stores/main.js";
 import {
   TransitionRoot,
   TransitionChild,
@@ -7,24 +8,16 @@ import {
   DialogPanel,
 } from "@headlessui/vue";
 
-const isOpen = ref(true);
-
+const store = useMainStore;
 const focus = ref(null);
-
-function closeModal() {
-  isOpen.value = false;
-}
-function openModal() {
-  isOpen.value = true;
-}
 </script>
 
 <template>
-  <TransitionRoot appear :show="isOpen" as="template">
+  <TransitionRoot :show="store().isOpen" as="template">
     <Dialog
       as="div"
       :initial-focus="focus"
-      @close="closeModal"
+      @close="store().close"
       class="fixed inset-0 z-50 overflow-y-auto lg:hidden">
       <TransitionChild
         as="template"
@@ -47,14 +40,14 @@ function openModal() {
         leave-from="opacity-100 -translate-x-0"
         leave-to="opacity-0 -translate-x-full">
         <DialogPanel
-          class="relative min-h-screen w-80 max-w-[calc(100%-3rem)] bg-white p-6 dark:bg-neutral-800">
+          class="relative min-h-screen w-80 max-w-[calc(100%-3rem)] bg-white p-8 dark:bg-neutral-800">
           <nav ref="focus" class="relative lg:text-sm lg:leading-6">
             <ul>
               <slot></slot>
             </ul>
           </nav>
-          <button
-            @click="closeModal"
+          <!-- <button
+            @click="store().close"
             type="button"
             class="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300"
             tabindex="0">
@@ -66,7 +59,7 @@ function openModal() {
                 stroke-width="2"
                 stroke-linecap="round"></path>
             </svg>
-          </button>
+          </button> -->
         </DialogPanel>
       </TransitionChild>
     </Dialog>

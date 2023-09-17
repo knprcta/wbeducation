@@ -12,7 +12,7 @@ import api from "../utils/api.js";
 const topics = ref([]);
 onMounted(() => {
   api
-    .get("topics/")
+    .get("menu/")
     .then((response) => {
       topics.value = response.data;
       console.log(topics.value);
@@ -45,6 +45,7 @@ onMounted(() => {
       <a v-for="link in topic.instruction_set" class="block" href="#">
         {{ link.header }}
       </a>
+      <a v-if="(topic.has_question === true)" class="block" href="#">ТЕСТ</a>
     </DisclosurePanel>
   </Disclosure>
 </template>

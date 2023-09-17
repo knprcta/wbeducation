@@ -1,7 +1,13 @@
+<script setup>
+import useMainStore from "../stores/main.js";
+const store = useMainStore;
+// store();
+</script>
+
 <template>
   <div
-    class="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 dark:border-neutral-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-neutral-900/10">
-    <div class="max-w-8xl mx-auto max-w-">
+    class="supports-[backdrop-blur]:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 dark:border-neutral-300/10 dark:bg-neutral-900/95 lg:z-50 lg:border-b">
+    <div class="max-w- mx-auto max-w-8xl">
       <div
         class="mx-4 border-b border-neutral-900/10 py-4 dark:border-neutral-300/10 lg:mx-0 lg:border-0 lg:px-8">
         <div class="relative flex items-center justify-between">
@@ -11,7 +17,7 @@
               alt="logo"
               class="dark:brightness-200 dark:grayscale" />
             <span
-              class="text-lg font-medium leading-none text-[#8638cf] dark:text-inherit">
+              class="text-wb-default text-lg font-medium leading-none dark:text-inherit">
               education
             </span>
           </div>
@@ -51,8 +57,9 @@
       </div>
     </div>
     <div
-      class="flex items-center border-b border-neutral-900/10 p-4 dark:border-neutral-50/[0.06] lg:hidden">
+      class="flex items-center border-b border-neutral-900/10 p-4 dark:border-neutral-300/10 lg:hidden">
       <button
+        @click="store().open"
         type="button"
         class="text-neutral-500 hover:text-neutral-600 dark:text-neutral-400 dark:hover:text-neutral-300">
         <svg
