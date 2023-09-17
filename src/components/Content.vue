@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import Menu from "./Menu.vue";
+import MenuContent from "./MenuContent.vue";
 import api from "../utils/api.js";
 
 const inst = ref([]);
@@ -19,7 +21,9 @@ onMounted(() => {
 
 <template>
   <div class="mx-auto max-w-8xl px-4 sm:px-6 md:px-8">
-    <!-- <Menu /> -->
+    <Menu>
+      <MenuContent />
+    </Menu>
     <div class="lg:pl-[19.5rem]">
       <div
         class="mx-auto max-w-3xl pt-10 xl:ml-0 xl:mr-[15.5rem] xl:max-w-none xl:pr-16">

@@ -9,7 +9,6 @@ import {
 } from "@headlessui/vue";
 
 const store = useMainStore;
-const focus = ref(null);
 </script>
 
 <template>
@@ -41,7 +40,7 @@ const focus = ref(null);
         leave-to="opacity-0 -translate-x-full">
         <DialogPanel
           class="relative min-h-screen w-80 max-w-[calc(100%-3rem)] bg-white p-8 dark:bg-neutral-800">
-          <nav ref="focus" class="relative lg:text-sm lg:leading-6">
+          <nav class="relative lg:text-sm lg:leading-6">
             <ul>
               <slot></slot>
             </ul>
