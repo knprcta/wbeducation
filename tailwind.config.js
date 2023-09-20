@@ -7,7 +7,7 @@ export default {
         "8xl": "90rem",
       },
       colors: {
-        "wb-default": "#8638cf",
+        "wb-default": "#cb11ab",
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -77,7 +77,7 @@ export default {
             a: {
               fontWeight: theme("fontWeight.semibold"),
               textDecoration: "none",
-              borderBottom: `1px solid ${theme("colors.sky.300")}`,
+              borderBottom: `1px solid ${theme("colors.wb-default")}`,
             },
             "a:hover": {
               borderBottomWidth: "2px",
@@ -185,7 +185,7 @@ export default {
             },
             a: {
               color: theme("colors.white"),
-              borderBottomColor: theme("colors.sky.400"),
+              borderBottomColor: theme("colors.wb-default"),
             },
             strong: {
               color: theme("colors.neutral.200"),
