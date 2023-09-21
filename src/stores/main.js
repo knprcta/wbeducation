@@ -10,7 +10,19 @@ const useMainStore = defineStore("main", () => {
     isOpen.value = false;
   }
 
-  return { isOpen, open, close };
+  function toogleTheme() {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }
+
+  return { isOpen, open, close, toogleTheme };
 });
 
 export default useMainStore;

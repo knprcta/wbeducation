@@ -8,7 +8,7 @@ import {
   DialogPanel,
 } from "@headlessui/vue";
 
-const store = useMainStore;
+const store = useMainStore();
 </script>
 
 <template>
@@ -16,10 +16,10 @@ const store = useMainStore;
     class="fixed inset-0 left-[max(0px,calc(50%-45rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
     <WNav />
   </div>
-  <TransitionRoot :show="store().isOpen" as="template">
+  <TransitionRoot :show="store.isOpen" as="template">
     <Dialog
       as="div"
-      @close="store().close"
+      @close="store.close"
       class="fixed inset-0 z-50 overflow-y-auto lg:hidden">
       <TransitionChild
         as="template"
