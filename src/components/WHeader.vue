@@ -1,8 +1,7 @@
 <script setup>
-import ThemeToogle from "./ThemeToogle.vue";
+import ThemeToggle from "./ThemeToggle.vue";
 import useMainStore from "../stores/main.js";
 const store = useMainStore();
-// store();
 </script>
 
 <template>
@@ -28,7 +27,7 @@ const store = useMainStore();
             </svg>
           </div>
           <div class="flex gap-3">
-            <ThemeToogle />
+            <ThemeToggle />
             <button
               class="flex h-7 w-7 items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300">
               <svg
