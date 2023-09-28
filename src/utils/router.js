@@ -1,6 +1,5 @@
 import {
   createRouter,
-  createWebHashHistory,
   createWebHistory,
 } from "vue-router";
 import MainLayout from "../layouts/MainLayout.vue";
@@ -9,7 +8,7 @@ import WTests from "../components/WTests.vue";
 
 const routes = [
   {
-    path: "/instructions/:id(\\d+)",
+    path: "/instructions/:slug",
     components: {
       default: MainLayout,
       content: WInstructions,

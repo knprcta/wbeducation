@@ -6,23 +6,14 @@ const useMainStore = defineStore("main", () => {
   function open() {
     isOpen.value = true;
   }
+
   function close() {
     isOpen.value = false;
   }
 
-  function toogleTheme() {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }
+  const currentPage = ref({});
 
-  return { isOpen, open, close, toogleTheme };
+  return { isOpen, open, close, currentPage };
 });
 
 export default useMainStore;

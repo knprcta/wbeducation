@@ -1,14 +1,14 @@
 <script setup>
-import { onBeforeMount } from "vue";
+// import { onBeforeMount } from "vue";
 import WHeader from "./components/WHeader.vue";
 import MainLayout from "./layouts/MainLayout.vue";
-import useMainStore from "./stores/main.js";
+// import useMainStore from "./stores/main.js";
 
-const store = useMainStore();
+// const store = useMainStore();
 
-onBeforeMount(() => {
-  store.toogleTheme();
-});
+// onBeforeMount(() => {
+//   store.toogleTheme();
+// });
 </script>
 
 <template>

@@ -1,4 +1,5 @@
 <script setup>
+import { MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
 import ThemeToggle from "./ThemeToggle.vue";
 import useMainStore from "../stores/main.js";
 const store = useMainStore();
@@ -6,7 +7,7 @@ const store = useMainStore();
 
 <template>
   <div
-    class="sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 supports-[backdrop-blur]:bg-white/60 dark:border-neutral-300/10 dark:bg-neutral-900/95 lg:z-50 lg:border-b">
+    class="sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur supports-[backdrop-blur]:bg-white/60 dark:border-neutral-300/10 dark:bg-neutral-900/95 lg:z-50 lg:border-b">
     <div class="max-w- mx-auto max-w-8xl">
       <div
         class="mx-4 border-b border-neutral-900/10 py-4 dark:border-neutral-300/10 lg:mx-0 lg:border-0 lg:px-8">
@@ -27,22 +28,11 @@ const store = useMainStore();
             </svg>
           </div>
           <div class="flex gap-3">
-            <ThemeToggle />
             <button
-              class="flex h-7 w-7 items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-              </svg>
+              class="flex h-7 w-7 items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300 lg:hidden">
+              <MagnifyingGlassIcon class="h-6 w-6" />
             </button>
+            <ThemeToggle />
           </div>
         </div>
       </div>
@@ -67,8 +57,8 @@ const store = useMainStore();
         </svg>
       </button>
       <ol class="ml-4 flex min-w-0 whitespace-nowrap text-sm leading-6">
-        <li class="flex items-center">
-          Для начала
+        <li v-if="store.currentPage.category" class="flex items-center">
+          <span>{{ store.currentPage.category }}</span>
           <svg
             width="3"
             height="6"
@@ -84,7 +74,7 @@ const store = useMainStore();
         </li>
         <li
           class="truncate font-semibold text-neutral-900 dark:text-neutral-200">
-          Основные понятия
+          {{ store.currentPage.title }}
         </li>
       </ol>
     </div>

@@ -1,6 +1,8 @@
 <script setup>
+import { watch } from "vue";
 import WNav from "./WNav.vue";
 import useMainStore from "../stores/main.js";
+import { useRoute } from "vue-router";
 import {
   TransitionRoot,
   TransitionChild,
@@ -8,7 +10,15 @@ import {
   DialogPanel,
 } from "@headlessui/vue";
 
+const route = useRoute();
 const store = useMainStore();
+
+watch(
+  () => route.fullPath,
+  () => {
+    store.close();
+  },
+);
 </script>
 
 <template>

@@ -1,16 +1,19 @@
 <script setup>
 import { ref, defineProps, watchEffect } from "vue";
 import api from "../utils/api.js";
+import useMainStore from "../stores/main.js";
+const store = useMainStore();
 
-const props = defineProps(["id"]);
+const props = defineProps(["slug"]);
 const inst = ref([]);
 
 watchEffect(() => {
   api
-    .get(`instructions/${props.id}`)
+    .get(`instructions/${props.slug}`)
     .then((response) => {
+      store.currentPage.category = response.data.topic_name;
+      store.currentPage.title = response.data.header;
       inst.value = response.data;
-      console.log(inst.value);
     })
     .catch((error) => {
       console.error("Ошибка при получении данных:", error);
@@ -22,7 +25,7 @@ watchEffect(() => {
   <header id="header" class="relative z-20">
     <div>
       <p class="mb-2 text-sm font-semibold leading-6 text-wb-default">
-        Для начала
+        {{ inst.topic_name }}
       </p>
       <div class="flex items-center">
         <h1

@@ -9,12 +9,13 @@ onMounted(() => {
     .get("menu/")
     .then((response) => {
       topics.value = response.data;
-      console.log(topics.value);
     })
     .catch((error) => {
       console.error("Ошибка при получении данных:", error);
     });
 });
+import useMainStore from "../stores/main.js";
+const store = useMainStore();
 </script>
 
 <template>
@@ -62,7 +63,7 @@ onMounted(() => {
             <router-link
               custom
               v-slot="{ isActive, href, navigate }"
-              :to="'/instructions/' + link.id">
+              :to="'/instructions/' + link.slug">
               <a
                 :class="[
                   isActive
