@@ -9,7 +9,7 @@ import WSidebar from "../components/WSidebar.vue";
       <div class="lg:pl-[19.5rem]">
         <div
           class="mx-auto max-w-3xl pt-10 xl:ml-0 xl:mr-[15.5rem] xl:max-w-none xl:pr-16">
-          <router-view name="content"></router-view>
+          <router-view></router-view>
         </div>
       </div>
     </div>

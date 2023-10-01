@@ -14,8 +14,6 @@ onMounted(() => {
       console.error("Ошибка при получении данных:", error);
     });
 });
-import useMainStore from "../stores/main.js";
-const store = useMainStore();
 </script>
 
 <template>

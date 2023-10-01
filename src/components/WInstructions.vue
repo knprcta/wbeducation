@@ -1,19 +1,21 @@
 <script setup>
-import { ref, defineProps, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
 import api from "../utils/api.js";
 import useMainStore from "../stores/main.js";
 const store = useMainStore();
 
 const props = defineProps(["slug"]);
-const inst = ref([]);
+const inst = ref({});
 
 watchEffect(() => {
   api
     .get(`instructions/${props.slug}`)
-    .then((response) => {
-      store.currentPage.category = response.data.topic_name;
-      store.currentPage.title = response.data.header;
-      inst.value = response.data;
+    .then(({ data }) => {
+      store.currentPage = {
+        category: data.topic_name,
+        title: data.header,
+      };
+      inst.value = data;
     })
     .catch((error) => {
       console.error("Ошибка при получении данных:", error);
@@ -41,4 +43,5 @@ watchEffect(() => {
   <div
     class="prose prose-neutral relative z-20 mt-8 dark:prose-dark"
     v-html="inst.content"></div>
+    <div class=""></div>
 </template>

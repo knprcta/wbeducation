@@ -1,7 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-} from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import MainLayout from "../layouts/MainLayout.vue";
 import WInstructions from "../components/WInstructions.vue";
 import WTests from "../components/WTests.vue";
@@ -9,11 +6,9 @@ import WTests from "../components/WTests.vue";
 const routes = [
   {
     path: "/instructions/:slug",
-    components: {
-      default: MainLayout,
-      content: WInstructions,
-    },
-    props: true,
+    component: MainLayout,
+    children: [{ path: "", component: WInstructions, props: true, }],
+
   },
   {
     path: "/tests/:id(\\d+)",
