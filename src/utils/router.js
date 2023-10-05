@@ -1,22 +1,30 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MainLayout from "../layouts/MainLayout.vue";
-import WInstructions from "../components/WInstructions.vue";
-import WTests from "../components/WTests.vue";
+import HomePage from "../pages/HomePage.vue";
+import ErrorPage from "../pages/ErrorPage.vue";
+import InstructionPage from "../pages/instructionPage.vue";
+import QuizPage from "../pages/quizPage.vue";
 
 const routes = [
   {
+    path: "/",
+    component: MainLayout,
+    children: [{ path: "", component: HomePage, props: true }],
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "error",
+    component: ErrorPage,
+  },
+  {
     path: "/instructions/:slug",
     component: MainLayout,
-    children: [{ path: "", component: WInstructions, props: true, }],
-
+    children: [{ path: "", component: InstructionPage, props: true }],
   },
   {
     path: "/tests/:id(\\d+)",
-    components: {
-      default: MainLayout,
-      content: WTests,
-    },
-    props: true,
+    component: MainLayout,
+    children: [{ path: "", component: QuizPage, props: true }],
   },
 ];
 

@@ -1,14 +1,16 @@
 <script setup>
-import WSidebar from "../components/WSidebar.vue";
+import Header from "../components/Header.vue";
+import Sidebar from "../components/Sidebar.vue";
 </script>
 
 <template>
+  <Header />
   <div class="overflow-hidden">
-    <div class="mx-auto max-w-8xl px-4 sm:px-6 md:px-8">
-      <WSidebar />
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+      <Sidebar />
       <div class="lg:pl-[19.5rem]">
         <div
-          class="mx-auto max-w-3xl pt-10 xl:ml-0 xl:mr-[15.5rem] xl:max-w-none xl:pr-16">
+          class="mx-auto max-w-3xl pt-10">
           <router-view></router-view>
         </div>
       </div>

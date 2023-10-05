@@ -1,5 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 export default {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
@@ -8,7 +13,10 @@ export default {
         "8xl": "90rem",
       },
       colors: {
-        "wb-default": "#cb11ab",
+        wb: {
+          light: "#c850f0",
+          dark: "#9e42c2",
+        },
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -78,7 +86,7 @@ export default {
             a: {
               fontWeight: theme("fontWeight.semibold"),
               textDecoration: "none",
-              borderBottom: `1px solid ${theme("colors.wb-default")}`,
+              borderBottom: `1px solid ${theme("colors.wb.dark")}`,
             },
             "a:hover": {
               borderBottomWidth: "2px",
@@ -186,7 +194,7 @@ export default {
             },
             a: {
               color: theme("colors.white"),
-              borderBottomColor: theme("colors.wb-default"),
+              borderBottomColor: theme("colors.wb.light"),
             },
             strong: {
               color: theme("colors.neutral.200"),
@@ -204,6 +212,9 @@ export default {
           },
         },
       }),
+      // fontFamily: {
+      //   sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      // },
     },
   },
   plugins: [require("@tailwindcss/typography")],
