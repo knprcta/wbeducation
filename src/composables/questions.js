@@ -19,13 +19,17 @@ export function useQuestions() {
     return questions.value[currentQuestionIndex.value];
   });
 
+  let caTimeoutId = null;
+
   function _resetData() {
     questions.value = [];
     currentQuestionIndex.value = 0;
     selectedAnswer.value = null;
     isFetching.value = false;
+    onTimeout.value = false;
     onEnd.value = false;
     correctAnswersCount.value = 0;
+    clearTimeout(caTimeoutId);
   }
 
   const getQuestions = async (id) => {
@@ -50,7 +54,7 @@ export function useQuestions() {
       correctAnswersCount.value++;
     }
 
-    setTimeout(() => {
+    caTimeoutId = setTimeout(() => {
       selectedAnswer.value = null;
       if (currentQuestionIndex.value < questions.value.length - 1) {
         currentQuestionIndex.value++;

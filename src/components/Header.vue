@@ -1,5 +1,6 @@
 <script setup>
 import Logo from "./Logo.vue";
+import SearchButton from "./SearchButton.vue";
 import { MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
 import ThemeToggle from "./ThemeToggle.vue";
 </script>
@@ -12,13 +13,13 @@ import ThemeToggle from "./ThemeToggle.vue";
       <div class="p-4 lg:px-8">
         <div class="relative flex items-center justify-between">
           <div class="flex items-baseline gap-1">
-            <Logo class="h-6 w-[136px]" />
+            <Logo class="h-6" />
           </div>
           <div class="flex gap-3">
-            <button
+            <SearchButton
               class="flex h-7 w-7 items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300 lg:hidden">
               <MagnifyingGlassIcon class="h-6 w-6" />
-            </button>
+            </SearchButton>
             <ThemeToggle />
           </div>
         </div>

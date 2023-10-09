@@ -11,5 +11,11 @@ export function useAlert() {
     errText.value = text;
   }
 
-  return { isAlertOpen, errCode, errText, openAlert };
+  function reset() {
+    isAlertOpen.value = false;
+    errCode.value = "";
+    errText.value = "";
+  }
+
+  return { isAlertOpen, errCode, errText, openAlert, reset };
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useAlert } from "./alert";
 
 const instance = axios.create({
-  baseURL: "http://31.31.196.161:8000/api/",
+  baseURL: "https://wbeducation.ru/api/",
 });
 
 const { openAlert } = useAlert();
@@ -52,10 +52,20 @@ export function useApi() {
     }
   };
 
+  const getSearchData = async (query) => {
+    try {
+      const response = await instance.get(`search/?q=${query}`);
+      return _checkRes(response);
+    } catch (error) {
+      openAlert(error.response.status, error.message);
+    }
+  };
+
   return {
     getTopicsData,
     getInstructionData,
     getQuestionsData,
     checkAnswerData,
+    getSearchData,
   };
 }

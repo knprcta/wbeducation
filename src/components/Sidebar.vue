@@ -31,7 +31,7 @@ const { topic, title } = useCurrentPage();
 <template>
   <div v-if="width >= 1024">
     <div
-      class="fixed inset-0 left-[max(0px,calc(50%-36rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
+      class="fixed inset-0 left-[max(0px,calc(50%-36rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block bg-white dark:bg-neutral-900">
       <NavItems :topics="topics" />
     </div>
   </div>

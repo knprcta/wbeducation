@@ -1,7 +1,9 @@
 <script setup>
+import SearchButton from "./SearchButton.vue";
 import { MagnifyingGlassIcon } from "@heroicons/vue/24/outline";
 import { HomeIcon } from "@heroicons/vue/20/solid";
 import AppLink from "./AppLink.vue";
+
 defineProps(["topics", "handler"]);
 </script>
 
@@ -10,13 +12,13 @@ defineProps(["topics", "handler"]);
     <div class="pointer-events-none sticky top-0 -ml-0.5 hidden lg:block">
       <div class="h-10 bg-white dark:bg-neutral-900"></div>
       <div class="pointer-events-auto relative bg-white dark:bg-neutral-900">
-        <button
+        <SearchButton
           type="button"
           class="flex w-full items-center rounded-md py-1.5 pl-2 pr-3 text-sm leading-6 text-neutral-400 shadow-sm ring-1 ring-neutral-900/10 hover:ring-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:ring-neutral-700">
           <MagnifyingGlassIcon class="mr-3 h-5 w-5" />
           Поиск...
           <span class="ml-auto flex-none pl-3 text-xs font-semibold">⌘K</span>
-        </button>
+        </SearchButton>
       </div>
       <div class="h-8 bg-gradient-to-b from-white dark:from-neutral-900"></div>
     </div>

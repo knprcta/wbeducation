@@ -1,6 +1,7 @@
 <script setup>
 import Header from "../components/Header.vue";
 import Sidebar from "../components/Sidebar.vue";
+import Search from "../components/Search.vue";
 </script>
 
 <template>
@@ -16,4 +17,5 @@ import Sidebar from "../components/Sidebar.vue";
       </div>
     </div>
   </div>
+  <Search />
 </template>

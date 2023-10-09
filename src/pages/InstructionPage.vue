@@ -2,7 +2,6 @@
 import { watchEffect } from "vue";
 import { useInstruction } from "../composables/instruction";
 
-
 const props = defineProps(["slug"]);
 
 const { instruction, getInstruction } = useInstruction();
