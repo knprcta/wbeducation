@@ -61,10 +61,10 @@ watchEffect(() => {
                     selectedAnswer !== null && answer.is_true,
                   'bg-red-300 text-black dark:bg-red-800 dark:text-white':
                     answer.id === selectedAnswer && !answer.is_true,
-                  'hover:border-wb-dark hover:text-wb-dark dark:hover:border-wb-light dark:hover:text-wb-light':
+                  'hover:border-wb-dark dark:hover:border-wb-light hover:-translate-y-1':
                     selectedAnswer === null,
                 },
-                'w-full rounded border border-neutral-900/10 p-3 text-left disabled:cursor-progress dark:border-neutral-300/10',
+                'w-full rounded border border-neutral-900/10 p-3 transition-all text-left disabled:cursor-progress dark:border-neutral-300/10',
               ]"
               :disabled="selectedAnswer !== null">
               {{ answer.content }}

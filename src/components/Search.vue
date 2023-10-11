@@ -97,12 +97,12 @@ watch(route, () => {
               <p class="px-6 py-16 text-center">
                 <span v-if="isFetching">Загрузка...</span>
                 <span v-else>
-                  Нет результатов по запросу "
+                  <span>Нет результатов по запросу "</span>
                   <strong
                     class="font-normal text-neutral-900 dark:text-neutral-200">
                     {{ query }}
                   </strong>
-                  "
+                  <span>"</span>
                 </span>
               </p>
             </div>

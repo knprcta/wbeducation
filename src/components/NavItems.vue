@@ -17,7 +17,6 @@ defineProps(["topics", "handler"]);
           class="flex w-full items-center rounded-md py-1.5 pl-2 pr-3 text-sm leading-6 text-neutral-400 shadow-sm ring-1 ring-neutral-900/10 hover:ring-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:hover:ring-neutral-700">
           <MagnifyingGlassIcon class="mr-3 h-5 w-5" />
           Поиск...
-          <span class="ml-auto flex-none pl-3 text-xs font-semibold">⌘K</span>
         </SearchButton>
       </div>
       <div class="h-8 bg-gradient-to-b from-white dark:from-neutral-900"></div>

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import NavItems from "./NavItems.vue";
-import { Bars3Icon } from "@heroicons/vue/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 import { ChevronRightIcon } from "@heroicons/vue/20/solid";
 import {
   TransitionRoot,
@@ -31,7 +31,7 @@ const { topic, title } = useCurrentPage();
 <template>
   <div v-if="width >= 1024">
     <div
-      class="fixed inset-0 left-[max(0px,calc(50%-36rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block bg-white dark:bg-neutral-900">
+      class="fixed inset-0 left-[max(0px,calc(50%-36rem))] right-auto top-[3.8125rem] z-20 hidden w-[19rem] overflow-y-auto pb-10 pl-8 pr-6 lg:block">
       <NavItems :topics="topics" />
     </div>
   </div>
@@ -39,7 +39,7 @@ const { topic, title } = useCurrentPage();
   <div v-else>
     <Teleport to="#header">
       <div
-        class="flex items-center border-t border-neutral-900/10 py-4 mx-4 dark:border-neutral-300/10 lg:hidden">
+        class="mx-4 flex items-center border-t border-neutral-900/10 py-4 dark:border-neutral-300/10 lg:hidden">
         <button
           @click="openMenu"
           type="button"
@@ -84,6 +84,11 @@ const { topic, title } = useCurrentPage();
           leave-to="-translate-x-full">
           <DialogPanel
             class="relative z-50 min-h-screen w-80 max-w-[calc(100%-3rem)] bg-white p-8 backdrop-blur-sm dark:bg-neutral-800">
+            <button
+              @click="closeMenu"
+              class="absolute right-6 top-6 flex h-8 w-8 items-center justify-center">
+              <XMarkIcon class="h-6 w-6" />
+            </button>
             <NavItems :topics="topics" :handler="closeMenu" />
           </DialogPanel>
         </TransitionChild>
