@@ -1,5 +1,5 @@
 <script setup>
-import { watchEffect } from "vue";
+import { computed, watchEffect } from "vue";
 import { useQuestions } from "../composables/questions";
 import Preloader from "../components/Preloader.vue";
 
@@ -9,6 +9,7 @@ const {
   questions,
   currentQuestion,
   currentQuestionIndex,
+  currentAnswers,
   selectedAnswer,
   correctAnswersCount,
   onTimeout,
@@ -52,7 +53,7 @@ watchEffect(() => {
           {{ currentQuestion.question }}
         </h2>
         <ul class="mt-4 flex flex-col gap-2">
-          <li v-for="answer in currentQuestion.answer_set" class="w-full">
+          <li v-for="answer in currentAnswers" class="w-full">
             <button
               @click="checkAnswer(answer)"
               :class="[

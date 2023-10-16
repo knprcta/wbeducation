@@ -19,6 +19,19 @@ export function useQuestions() {
     return questions.value[currentQuestionIndex.value];
   });
 
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  const currentAnswers = computed(() => {
+    const array = currentQuestion.value.answer_set.slice(0);
+    return shuffle(array);
+  });
+
   let caTimeoutId = null;
 
   function _resetData() {
@@ -69,6 +82,7 @@ export function useQuestions() {
     questions,
     currentQuestion,
     currentQuestionIndex,
+    currentAnswers,
     selectedAnswer,
     correctAnswersCount,
     isFetching,
