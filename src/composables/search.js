@@ -1,48 +1,48 @@
-import { ref, watch } from "vue";
-import { useApi } from "./api";
+import { ref, watch } from 'vue'
+import { useApi } from './api'
 
-const { getSearchData } = useApi();
-const isOpen = ref(false);
+const { getSearchData } = useApi()
+const isOpen = ref(false)
 
 export function useSearch() {
-  const query = ref("");
-  const result = ref([]);
-  const isFetching = ref(false);
+  const query = ref('')
+  const result = ref([])
+  const isFetching = ref(false)
 
   function _reset() {
-    query.value = "";
-    result.value = [];
+    query.value = ''
+    result.value = []
   }
 
   function openSearch() {
-    isOpen.value = true;
+    isOpen.value = true
   }
 
   function closeSearch() {
-    isOpen.value = false;
-    _reset();
+    isOpen.value = false
+    _reset()
   }
 
   const getSearch = async (query) => {
-    isFetching.value = true;
+    isFetching.value = true
     try {
-      const response = await getSearchData(query);
-      result.value = response;
+      const response = await getSearchData(query)
+      result.value = response
     } finally {
-      isFetching.value = false;
+      isFetching.value = false
     }
-  };
+  }
 
   watch(
     () => query.value,
     (newQuery) => {
       if (newQuery.length) {
-        getSearch(newQuery);
+        getSearch(newQuery)
       } else {
-        _reset();
+        _reset()
       }
-    },
-  );
+    }
+  )
 
-  return { isOpen, query, result, isFetching, openSearch, closeSearch };
+  return { isOpen, query, result, isFetching, openSearch, closeSearch }
 }

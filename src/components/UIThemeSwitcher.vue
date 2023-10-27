@@ -1,5 +1,5 @@
 <script setup>
-import { useTheme } from "../composables/theme";
+import { useTheme } from "@/composables/theme";
 import {
   Listbox,
   ListboxButton,
@@ -24,25 +24,26 @@ const options = [
 <template>
   <Listbox v-model="option">
     <ListboxButton
-      class="flex h-7 w-7 items-center justify-center hover:text-neutral-600 dark:hover:text-neutral-300">
+      class="flex h-7 w-7 items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200">
       <MoonIcon
         v-if="darkModeActive"
-        :class="[{ 'text-wb-light': option !== 'system' }, 'h-6 w-6']" />
+        :class="[{ 'text-purple-500': option !== 'system' }, 'h-6 w-6']" />
       <SunIcon
         v-else
-        :class="[{ 'text-wb-dark': option !== 'system' }, 'h-6 w-6']" />
+        :class="[{ 'text-purple-600': option !== 'system' }, 'h-6 w-6']" />
     </ListboxButton>
     <ListboxOptions
-      class="absolute right-0 top-full z-50 mt-8 w-36 overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-neutral-700 shadow-lg ring-1 ring-neutral-900/10 dark:bg-neutral-800 dark:text-neutral-300 dark:ring-0">
+      class="absolute right-0 top-full z-50 mt-8 w-36 overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-zinc-700 shadow-lg ring-1 ring-zinc-900/10 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-0">
       <ListboxOption
         v-for="item in options"
+        :key="item"
         :value="item.value"
         v-slot="{ active, selected }">
         <li
           :class="[
             {
-              'bg-neutral-50 dark:bg-neutral-600/30': active,
-              'text-wb-dark dark:text-wb-light': selected,
+              'bg-zinc-50 dark:bg-zinc-600/30': active,
+              'text-purple-600 dark:text-purple-500': selected,
             },
             'flex cursor-pointer items-center px-2 py-1',
           ]">

@@ -1,76 +1,75 @@
-import axios from "axios";
-import { useAlert } from "./alert";
+import axios from 'axios'
+import { useToast } from 'vue-toastification'
 
-const url = import.meta.env.VITE_API_URL;
+const toast = useToast()
+const url = import.meta.env.VITE_API_URL
 
 const instance = axios.create({
-  baseURL: url,
-});
-
-const { openAlert } = useAlert();
+  baseURL: url
+})
 
 function _checkRes(response) {
   if (response.status === 200 || response.status === 201) {
-    return response.data;
+    return response.data
   } else {
-    throw new Error(`Ошибка ${response.status}`);
+    throw new Error(`Ошибка ${response.status}`)
   }
 }
 
 export function useApi() {
   const getTopicsData = async () => {
     try {
-      const response = await instance.get("menu/");
-      return _checkRes(response);
+      const response = await instance.get('menu/')
+      return _checkRes(response)
     } catch (error) {
-      openAlert(error.code, error.message);
+      toast.error(error.message, { timeout: false })
     }
-  };
+  }
 
   const getInstructionData = async (slug) => {
     try {
-      const response = await instance.get(`instructions/${slug}/`);
-      return _checkRes(response);
+      const response = await instance.get(`instructions/${slug}/`)
+      return _checkRes(response)
     } catch (error) {
-      openAlert(error.code, error.message);
+      toast.error(error.message, { timeout: false })
     }
-  };
+  }
 
   const getQuestionsData = async (topicId) => {
     try {
-      const response = await instance.get(`questions/${topicId}/`);
-      return _checkRes(response);
+      const response = await instance.get(`questions/${topicId}/`)
+      return _checkRes(response)
     } catch (error) {
-      openAlert(error.code, error.message);
+      toast.error(error.message, { timeout: false })
     }
-  };
+  }
 
   const checkAnswerData = async (answerId) => {
     try {
-      const response = await instance.get(`checkanswer/${answerId}/`);
-      return _checkRes(response);
+      const response = await instance.get(`checkanswer/${answerId}/`)
+      return _checkRes(response)
     } catch (error) {
-      openAlert(error.code, error.message);
+      toast.error(error.message, { timeout: false })
     }
-  };
+  }
 
   const getSearchData = async (query) => {
     try {
-      const response = await instance.get(`search/?q=${query}`);
-      return _checkRes(response);
+      const response = await instance.get(`search/?q=${query}`)
+      return _checkRes(response)
     } catch (error) {
-      openAlert(error.code, error.message);
+      toast.error(error.message, { timeout: false })
     }
-  };
+  }
 
   const submitFeedbackData = async (data) => {
     try {
-      const response = await instance.post("feedback/", data);
-      return _checkRes(response);
+      const response = await instance.post('feedback/', data)
+      return _checkRes(response)
     } catch (error) {
-      openAlert(error.code, error.message);
+      toast.error(error.message, { timeout: false })
     }
-  };
+  }
 
   return {
     getTopicsData,
@@ -78,6 +77,6 @@ export function useApi() {
     getQuestionsData,
     checkAnswerData,
     getSearchData,
-    submitFeedbackData,
-  };
+    submitFeedbackData
+  }
 }

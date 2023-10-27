@@ -1,37 +1,5 @@
-@import url(./inter.css);
-@tailwind base;
+@import 'fonts.css';
+@import 'base.css';
+@import 'toast.css';
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  .dark {
-    color-scheme: dark;
-  }
-
-  html {
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    @apply h-full scroll-mt-[9.875rem] lg:scroll-mt-[6.3125rem];
-  }
-
-  body {
-    @apply min-h-full bg-white text-neutral-700 antialiased selection:bg-yellow-200 selection:text-neutral-900 dark:bg-neutral-900 dark:text-neutral-400 dark:selection:bg-wb-light/40 dark:selection:text-white;
-  }
-
-  a,
-  input,
-  button,
-  textarea {
-    -webkit-tap-highlight-color: transparent;
-    @apply touch-manipulation outline-none;
-  }
-
-  #app {
-    @apply relative;
-  }
-
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-}

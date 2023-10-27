@@ -1,21 +1,21 @@
-import { ref } from "vue";
-import { useApi } from "./api";
+import { ref } from 'vue'
+import { useApi } from './api'
 
-const { getTopicsData } = useApi();
-const topics = ref([]);
+const { getTopicsData } = useApi()
+const topics = ref([])
 
 export function useTopics() {
-  const isFetching = ref(false);
+  const isFetching = ref(false)
 
   const getTopics = async () => {
-    isFetching.value = true;
+    isFetching.value = true
     try {
-      const response = await getTopicsData();
-      topics.value = response;
+      const response = await getTopicsData()
+      topics.value = response
     } finally {
-      isFetching.value = false;
+      isFetching.value = false
     }
-  };
+  }
 
-  return { topics, isFetching, getTopics };
+  return { topics, isFetching, getTopics }
 }

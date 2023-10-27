@@ -1,0 +1,32 @@
+@tailwind base;
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  @apply h-full scroll-mt-[9.875rem] lg:scroll-mt-[6.3125rem];
+}
+
+body {
+  @apply h-full bg-white text-zinc-700 antialiased selection:bg-yellow-200 selection:text-zinc-900 dark:bg-zinc-900 dark:text-zinc-400 dark:selection:bg-purple-500/40 dark:selection:text-white;
+}
+
+#app {
+  @apply relative flex min-h-full flex-col;
+}
+
+a,
+input,
+button,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+  @apply touch-manipulation outline-none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

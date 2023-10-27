@@ -1,5 +1,5 @@
 <script setup>
-import { useSearch } from "../composables/search";
+import { useSearch } from "@/composables/search";
 
 const { openSearch } = useSearch();
 </script>

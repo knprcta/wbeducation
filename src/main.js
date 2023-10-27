@@ -1,9 +1,12 @@
-import { createApp } from "vue";
-import router from "./utils/router";
-import "./css/main.css";
-import App from "./App.vue";
+import '@/css/main.css'
 
-const app = createApp(App);
+import { createApp } from 'vue'
+import App from '@/App.vue'
+import router from '@/router'
+import toast from "vue-toastification";
 
-app.use(router);
-app.mount("#app");
+const app = createApp(App)
+app.use(router)
+app.use(toast)
+
+app.mount('#app')
